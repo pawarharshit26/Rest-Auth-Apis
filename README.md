@@ -43,6 +43,15 @@ Uses django and djangorestframework as framework
 
 
 ### For Revoke token Functionality
-	
+	open "http://localhost:8000/admin/" on browser
+ 	login via username: Admin, password: Admin@123 
+	click on Authapp -> User
+  	
+  <img width="995" alt="Screenshot 2024-12-08 at 11 49 39 PM" src="https://github.com/user-attachments/assets/3ad0f2e8-e90a-425b-a7c4-dc62b31ed0ca">
+
+ 	Hear you are able to see the list of users and which user currently have token
+	for revoke those token select checkbox as shown in image, select revoke token action from dropdown and click on go
+ <img width="995" alt="Screenshot 2024-12-08 at 11 52 37 PM" src="https://github.com/user-attachments/assets/4584da83-7e4b-4d44-a152-8d25e6ee3d09">
+
 
 
