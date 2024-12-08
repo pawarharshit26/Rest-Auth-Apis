@@ -35,11 +35,11 @@ Uses django and django rest framework
 
 ### Authenticated API (Replce bearer token from token 
 	curl --location 'localhost:8000/auth/authorized-api/' \
-	--header 'Authorization: Bearer {singin_token}'
+	--header 'Authorization: Bearer {signin_token}'
 
 ### Refresh token (Replce bearer token from token 
 	curl --location --request POST 'localhost:8000/auth/refresh-token/' \
-	--header 'Authorization: Bearer {singin_token}'
+	--header 'Authorization: Bearer {signin_token}'
 
 
 ### For Revoke token Functionality
