@@ -6,10 +6,21 @@ services:
     command:  >
       bash -c "
         python manage.py migrate &&
-        python manage.py createsuperuser --noinput --username admin --email admin@example.com --password adminpassword &&
+        python manage.py shell < authapis/scripts.py &&
+        python manage.py collectstatic --noinput &&
         python manage.py runserver 0.0.0.0:8000
       "
+    environment:
+      - SUPER_USER_NAME=${SUPER_USER_NAME}
+      - SUPER_USER_PASSWORD=${SUPER_USER_PASSWORD}
+      - DEBUG=${DEBUG}
+      - SECRET_KEY=${SECRET_KEY}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
     volumes:
       - .:/code
+      - static_volume:/code/staticfiles
     ports:
       - "8000:8000"
+
+volumes:
+  static_volume:

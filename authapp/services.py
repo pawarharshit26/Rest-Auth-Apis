@@ -2,6 +2,7 @@ from authapis.exceptions import BaseException
 from authapp.models import User
 from rest_framework.authtoken.models import Token
 from authapis.jwt import JWTService
+from django.conf import settings
 
 
 class AuthService:
@@ -15,6 +16,7 @@ class AuthService:
 
     class UserDoesNotExistsException(AuthServiceException):
         pass
+
     class UserIsInactivatedException(AuthServiceException):
         pass
 
@@ -35,7 +37,9 @@ class AuthService:
         if not user.check_password(password):
             raise cls.WrongPasswordException("Wrong password")
         if user.is_active is False:
-            raise cls.UserIsInactivatedException("Your account was inactive or deleted. please contact support.")
+            raise cls.UserIsInactivatedException(
+                "Your account was inactive or deleted. please contact support."
+            )
         rest_token, _ = Token.objects.get_or_create(user=user)
         jwt_token = JWTService.encode_with_ttl(
             {"rest_token": rest_token.key}, ttl=cls.TOKEN_TTL
@@ -46,5 +50,9 @@ class AuthService:
     def refresh_token(cls, rest_token_key: str):
         if not rest_token_key:
             raise cls.AuthServiceException("Token not provided")
-        jwt_token = JWTService.encode_with_ttl({"rest_token": rest_token_key}, ttl=cls.TOKEN_TTL)
+        jwt_token = JWTService.encode_with_ttl(
+            {"rest_token": rest_token_key}, ttl=cls.TOKEN_TTL
+        )
         return jwt_token
+
+
