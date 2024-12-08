@@ -22,7 +22,7 @@ class BaseApi(GenericAPIView):
             raise ValidationError("output_serializer_class is not defined")
         return self.output_serializer_class(data)
     
-    def get_token_payload(self) -> dict|None:
+    def get_token_payload(self) -> dict | None:
         if hasattr(self.request, "token_payload") and isinstance(
             self.request.token_payload, dict
         ):
