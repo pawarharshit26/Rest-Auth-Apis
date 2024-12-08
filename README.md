@@ -1,5 +1,5 @@
 ## This Project contains rest apis for authentication
-Uses django and djangorestframework as framework
+Uses django and django rest framework 
 
 ## for running it locally, please follow the steps below
 (Please install docker for running via single command)
