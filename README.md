@@ -43,4 +43,7 @@ Uses django and djangorestframework as framework
 	--data ''
 
 
+### For Revoke token Functionality
+	
+
 
