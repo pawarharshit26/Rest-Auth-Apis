@@ -37,10 +37,9 @@ Uses django and djangorestframework as framework
 	curl --location 'localhost:8000/auth/authorized-api/' \
 	--header 'Authorization: Bearer {singin_token}'
 
-### Refresh token
+### Refresh token (Replce bearer token from token 
 	curl --location --request POST 'localhost:8000/auth/refresh-token/' \
-	--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN0X3Rva2VuIjoiYWZlYThjZWU3M2I2ODQ3Yjk4ZTcwNzlhOWY5ZDJhYWI4NTcxNjQ3YyIsImV4cCI6MTczMzY4MzE1OH0.X1scdZKW225h4_ll3TZGjfBpGf3p-8MKaM66G3WjENM' \
-	--data ''
+	--header 'Authorization: Bearer {singin_token}'
 
 
 ### For Revoke token Functionality
