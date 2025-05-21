@@ -25,7 +25,7 @@ Uses django and django rest framework
 	    "password": "hars12123"
 	}'
 
-### SingIn API
+### SignIn API
 	curl --location 'localhost:8000/auth/signin/' \
 	--header 'Content-Type: application/json' \
 	--data-raw '{
