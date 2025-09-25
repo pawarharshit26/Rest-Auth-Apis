@@ -22,4 +22,6 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("auth/", include("authapp.urls")),
+    path("silk/", include("silk.urls", namespace="silk")),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

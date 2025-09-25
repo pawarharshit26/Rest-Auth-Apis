@@ -5,6 +5,8 @@ from authapp.services import AuthService
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 
+from silk.profiling.profiler import silk_profile
+
 
 class SignupApi(BaseOpenApi):
     class InputSerializer(BaseSerializer):
@@ -13,6 +15,7 @@ class SignupApi(BaseOpenApi):
 
     input_serializer_class = InputSerializer
 
+    @silk_profile(name="SignupApi")
     def post(self, request, *args, **kwargs):
         data = self.validate_input_data()
         try:
